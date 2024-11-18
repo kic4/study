@@ -1,0 +1,24 @@
+appenders:
+  info:
+    kind: file
+    filters:
+      - kind: threshold
+        level: info
+    path: "logs/info.log"
+    encoder:
+      pattern: "{d(%Y-%m-%d %H:%M:%S %Z)} - {l}:{m}{n}"
+
+  error:
+    kind: file
+    filters:
+      - kind: threshold
+        level: error
+    path: "logs/error.log"
+    encoder:
+      pattern: "{d(%Y-%m-%d %H:%M:%S %Z)} - {l}:{m}{n}"
+
+# Set the default logging level to "warn" and attach the "stdout" appender to the root
+root:
+  appenders:
+    - info
+    - error
